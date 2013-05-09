@@ -1,0 +1,10 @@
+1.0.4 added OpenGL configuration options to allow using this application on
+      a wider range of graphic cards
+
+1.0.3 fixed bug that crashed the application when entering an empty URL or
+      when a download failed
+
+1.0.2 removed glut library, it was needed only for testing and many people
+      do not have glut on their system
+
+1.0.1 first release
