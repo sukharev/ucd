@@ -1,0 +1,7 @@
+Notes for vol_reng project
+
+TODO list:
+1) use marching squares algorithm to implement isolines
+	- disable depth test in OpenGL when rendering 2D slices together with isolines
+2) merge slice windows together with volume rendering window.
+3) work on TAC partitioning

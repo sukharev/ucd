@@ -1,0 +1,73 @@
+main.o: main.cpp winvismain.h winvisview.h image.h winsliceview.h \
+  cxvolume.h cx3dvector.h wincolormap.h wintinydraw.h mydragbutton.h \
+  cxcolor.h winhistogram.h netcdf_read.h marchingsquares.h parcrd.h \
+  color.h vec2.h winctrlview.h winctrlmain.h winctrllight.h winctrlca.h \
+  abstract.h winctrlnetcdfview.h winctrlhistory.h winctrlnetcdf.h
+cxparameters.o: cxparameters.cpp cxparameters.h
+cx3dvector.o: cx3dvector.cpp cx3dvector.h
+cxvolume.o: cxvolume.cpp cxvolume.h cx3dvector.h wincolormap.h \
+  wintinydraw.h mydragbutton.h cxcolor.h winhistogram.h netcdf_read.h \
+  marchingsquares.h parcrd.h color.h vec2.h cxparameters.h shader.h \
+  winvisview.h image.h winsliceview.h cxmatrix_c.h
+winvisview.o: winvisview.cpp winvisview.h image.h winvismain.h cxvolume.h \
+  cx3dvector.h wincolormap.h wintinydraw.h mydragbutton.h cxcolor.h \
+  winhistogram.h netcdf_read.h marchingsquares.h parcrd.h color.h vec2.h \
+  trackball.c trackball.h shader.h
+winvismain.o: winvismain.cpp winvismain.h winvisview.h image.h cxvolume.h \
+  cx3dvector.h wincolormap.h wintinydraw.h mydragbutton.h cxcolor.h \
+  winhistogram.h netcdf_read.h marchingsquares.h parcrd.h color.h vec2.h
+shader.o: shader.cpp shader.h
+cxcolor.o: cxcolor.cpp cxcolor.h
+mydragbutton.o: mydragbutton.cpp mydragbutton.h wintinydraw.h \
+  wincolormap.h cxcolor.h winhistogram.h
+wintinydraw.o: wintinydraw.cpp wintinydraw.h wincolormap.h mydragbutton.h \
+  cxcolor.h winhistogram.h
+wincolormap.o: wincolormap.cpp wincolormap.h wintinydraw.h mydragbutton.h \
+  cxcolor.h winhistogram.h Fl_Color_Chooser.cxx winvisview.h image.h \
+  cxvolume.h cx3dvector.h netcdf_read.h marchingsquares.h parcrd.h \
+  color.h vec2.h
+cxmatrix_c.o: cxmatrix_c.cpp cxmatrix_c.h
+winctrlmain.o: winctrlmain.cpp winctrlmain.h wincolormap.h wintinydraw.h \
+  mydragbutton.h cxcolor.h winhistogram.h winctrlview.h cxvolume.h \
+  cx3dvector.h netcdf_read.h marchingsquares.h parcrd.h color.h vec2.h \
+  winctrllight.h winctrlca.h abstract.h winctrlnetcdfview.h winvisview.h \
+  image.h
+winctrlview.o: winctrlview.cpp winctrlview.h cxvolume.h cx3dvector.h \
+  wincolormap.h wintinydraw.h mydragbutton.h cxcolor.h winhistogram.h \
+  netcdf_read.h marchingsquares.h parcrd.h color.h vec2.h winvisview.h \
+  image.h
+winctrllight.o: winctrllight.cpp winctrllight.h cxvolume.h cx3dvector.h \
+  wincolormap.h wintinydraw.h mydragbutton.h cxcolor.h winhistogram.h \
+  netcdf_read.h marchingsquares.h parcrd.h color.h vec2.h winvisview.h \
+  image.h
+winsliceview.o: winsliceview.cpp winsliceview.h cxvolume.h cx3dvector.h \
+  wincolormap.h wintinydraw.h mydragbutton.h cxcolor.h winhistogram.h \
+  netcdf_read.h marchingsquares.h parcrd.h color.h vec2.h
+winctrlhistory.o: winctrlhistory.cpp winctrlhistory.h cxvolume.h \
+  cx3dvector.h wincolormap.h wintinydraw.h mydragbutton.h cxcolor.h \
+  winhistogram.h netcdf_read.h marchingsquares.h parcrd.h color.h vec2.h \
+  winctrlmain.h winctrlview.h winctrllight.h winctrlca.h abstract.h \
+  winctrlnetcdfview.h winvisview.h image.h
+image.o: image.cpp image.h
+winhistogram.o: winhistogram.cpp winhistogram.h
+netcdf_read.o: netcdf_read.cpp netcdf_read.h
+winctrlnetcdf.o: winctrlnetcdf.cpp winctrlnetcdf.h wincolormap.h \
+  wintinydraw.h mydragbutton.h cxcolor.h winhistogram.h \
+  winctrlnetcdfview.h cxvolume.h cx3dvector.h netcdf_read.h \
+  marchingsquares.h parcrd.h color.h vec2.h winsliceview.h winctrllight.h \
+  winvisview.h image.h winvismain.h
+winctrlnetcdfview.o: winctrlnetcdfview.cpp winctrlnetcdfview.h cxvolume.h \
+  cx3dvector.h wincolormap.h wintinydraw.h mydragbutton.h cxcolor.h \
+  winhistogram.h netcdf_read.h marchingsquares.h parcrd.h color.h vec2.h \
+  winvisview.h image.h
+parcrd.o: parcrd.cpp parcrd.h color.h vec2.h netcdf_read.h cxvolume.h \
+  cx3dvector.h wincolormap.h wintinydraw.h mydragbutton.h cxcolor.h \
+  winhistogram.h marchingsquares.h
+winctrlca.o: winctrlca.cpp winctrlca.h cxvolume.h cx3dvector.h \
+  wincolormap.h wintinydraw.h mydragbutton.h cxcolor.h winhistogram.h \
+  netcdf_read.h marchingsquares.h parcrd.h color.h vec2.h abstract.h \
+  winvisview.h image.h
+marchingsquares.o: marchingsquares.cpp marchingsquares.h
+rectdraw.o: rectdraw.cpp rectdraw.h wincolormap.h wintinydraw.h \
+  mydragbutton.h cxcolor.h winhistogram.h
+framebuffer.o: framebuffer.cpp framebuffer.h

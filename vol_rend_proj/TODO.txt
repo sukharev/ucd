@@ -1,0 +1,46 @@
+
+07/22/08
+-implement ANALYZE reader  (-)
+-run TAC on Owen's dataset  (-)
+
+07/21/08
+-isolate the interface of the previous volume rendering (+)
+
+
+this is how ControlWin sets up the transfer function, opacity display,
+and histogram.
+
+
+    {
+        vertOffset = int(2*TOP_MARGIN+TAB_HEIGHT + WIN_HEIGHT*TAB_PERCENT);
+        int transFuncVerticalOffset =
+vertOffset+vertSpacing*widgetNumber+OPACITYDISP_HEIGHT+HISTOGRAM1D_HEIGHT+2;
+        int opacityDispVerticalOffset =
+vertOffset+vertSpacing*widgetNumber+HISTOGRAM1D_HEIGHT+1;
+       
+        ControlWin *ihateptrs = this;
+        trans1D =
+        new TransferFunc1D(MARGIN, transFuncVerticalOffset, WIN_WIDTH-(2*MARGIN),
+                                TRANSFERFUNC1D_HEIGHT, TRANSFERFUNC_RESOLUTION, &ihateptrs);                   
+       
+
+        std::string filename = string(DATASET_FILENAME) + "_" +
+string(HDF5_GROUPNAME) + ".hist";
+      hist1D =
+      new Histogram1D(MARGIN, vertOffset+vertSpacing*widgetNumber,
+WIN_WIDTH-(2*MARGIN),
+                      HISTOGRAM1D_HEIGHT);
+
+       
+        float * colorTable = trans1D->getColorTablePtr();
+        opacityDisp =
+        new OpacityDisp(MARGIN, opacityDispVerticalOffset, WIN_WIDTH-(2*MARGIN),
+                            OPACITYDISP_HEIGHT,trans1D->getResolution(),&colorTable);
+       
+       
+       
+        trans1D->setOpacityDisp(&opacityDisp);
+        trans1D->setHistogram1D(&hist1D);
+        hist1D->setColorTable(colorTable,trans1D->getResolution());
+        volume->setTransferFuncTex(&colorTable, (long) trans1D->getResolution());
+    }

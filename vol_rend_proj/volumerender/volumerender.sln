@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{56AF0A14-1744-434C-8048-286F88BCB819}"
+	ProjectSection(SolutionItems) = preProject
+		myVOL.frag = myVOL.frag
+		myVOL.vert = myVOL.vert
+		volumerender.cfg = volumerender.cfg
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "volumerender", "volumerender.vcproj", "{4E277644-7312-47B7-BE0E-89E75DAF2F13}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4E277644-7312-47B7-BE0E-89E75DAF2F13}.Debug|Win32.ActiveCfg = Debug|Win32
+		{4E277644-7312-47B7-BE0E-89E75DAF2F13}.Debug|Win32.Build.0 = Debug|Win32
+		{4E277644-7312-47B7-BE0E-89E75DAF2F13}.Release|Win32.ActiveCfg = Release|Win32
+		{4E277644-7312-47B7-BE0E-89E75DAF2F13}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

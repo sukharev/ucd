@@ -1,0 +1,27 @@
+[Input Data File 0]
+/media/usbdisk1/climate/temp/temp_%s
+
+[Input Data File 1]
+/media/usbdisk1/climate/salt/salt_%s
+
+[Input Data File]
+/media/usbdisk2/climate/salt/salt_%s
+
+[Start Timestep]
+0
+
+[End Timestep]
+1199
+
+
+800x686x215
+400x343x108
+/media/usbdisk/lifted_0040/float_800x686x215/lifted_Y_HO2_0040_norm
+/media/usbdisk/lifted_0040/float_800x686x215/lifted_mixfrac_0040
+/media/usbdisk/lifted_0040/float_800x686x215/lifted_Y_HO2_0040
+/media/usbdisk/lifted_0040/float_800x686x215/lifted_Y_OH_0040_norm
+
+/media/usbdisk/supernova_2007/angular_600_float/A%s
+/media/usbdisk/supernova_2007/angular_600_float/rawA%s
+/media/usbdisk/supernova_2007/angular_600_float/rawA%s
+/media/usbdisk/supernova_2007/entropy_600_float/entropy%s

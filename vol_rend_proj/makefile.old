@@ -1,0 +1,85 @@
+EXE_NAME = volumerender/cxvolume
+
+CONFIG = RESEARCH
+
+SYSTEM = LINUX
+
+
+ifeq ($(SYSTEM), LINUX)
+	CPPFLAGS = -g -c -Wall
+	CXX=g++
+	FLTK = $(HOME)/local/lib64/fltk
+	GLUT = $(HOME)/local/lib64/glut
+	GLEW = $(HOME)/local/lib64/glew
+	INCLUDE = -I/usr/X11R6/include -I$(FLTK)/include -I$(GLEW)/include
+	LIB = -L$(FLTK)/lib -L$(GLUT)/lib -L$(GLEW)/lib -L/usr/X11R6/lib64
+	LDFLAGS = -lXmu -lXi -lfltk -lfltk_gl -lGL -lGLU -lglut -lGLEW -ludunits -lm
+endif
+
+ifeq ($(SYSTEM), MAC_X11)
+	CPPFLAGS = -g -c -Wall
+	CXX=g++
+	FLTK_INC = $(HOME)/local/lib32/fltk/include
+	FLTK_LIB = $(HOME)/local/lib32/fltk/lib
+	GLUT_INC = /opt/local/include
+	GLUT_LIB = /opt/local/lib
+	GLEW_INC = /opt/local/include
+	GLEW_LIB = /opt/local/lib
+	OPENGL_INC = /usr/X11R6/include
+	OPENGL_LIB = /usr/X11R6/lib	
+	INCLUDE = -I$(FLTK_INC) -I$(GLUT_INC) -I$(GLEW_INC) -I$(OPENGL_INC)
+	LIB = -L$(FLTK_LIB) -L$(GLUT_LIB) -L$(GLEW_LIB) -L$(OPENGL_LIB)
+	LDFLAGS = -lfltk -lfltk_gl -lGL -lGLU -lglut -lGLEW -lXmu -lX11
+endif
+
+ifeq ($(CONFIG), RESEARCH)
+	#CPPFLAGS  += -DMULTI_VARIABLES
+	#CPPFLAGS += _DWIN_HISTORY
+	CPPFLAGS += -DWIN_SLICE
+	#CPPFLAGS += -DTIMING
+	CPPFLAGS += -DSAVE_SINGLE_IMAGE
+	CPPFLAGS += -DSAVE_IMAGES
+	#CPPFLAGS += -DSHOWOPACITY
+	#CPPFLAGS += -DDRAW_LARGEIMAGE
+	CPPFLAGS += -DROTATION
+	CPPFLAGS += -DCUT
+	CPPFLAGS += -DSHIFT
+	CPPFLAGS += -DREAD_HEADFILE
+	CPPFLAGS += -DQUANTIZATION	
+	#CPPFLAGS += -DHISTOGRAM
+	#CPPFLAGS += -DSUPERNOVA
+	CPPFLAGS += -DCLIMATE
+	CPPFLAGS += -DORTHO
+	#CPPFLAGS += -DDRAWIMPORTANCE
+	
+endif
+
+ifeq ($(CONFIG), PUBLIC)
+	CPPFLAGS += -DPUBLIC_VERSION
+endif
+
+OBJ_DIR = .
+CPPFILES = main.cpp cxparameters.cpp cx3dvector.cpp cxvolume.cpp winvisview.cpp \
+           winvismain.cpp shader.cpp \
+           cxcolor.cpp mydragbutton.cpp wintinydraw.cpp wincolormap.cpp cxmatrix_c.cpp \
+           winctrlmain.cpp winctrlview.cpp winctrllight.cpp winsliceview.cpp \
+           winctrlhistory.cpp image.cpp winhistogram.cpp
+
+OBJECT_FILES = $(patsubst %.cpp,$(OBJ_DIR)/%.o,$(CPPFILES))
+
+all: $(OBJECT_FILES)	
+	$(CXX) -o ${EXE_NAME} $(OBJECT_FILES) $(LIB) $(LDFLAGS)
+
+
+$(OBJ_DIR)/%.o: %.cpp
+	$(CXX) $(CPPFLAGS) $(INCLUDE) $(ENV) -o $@ $<
+
+include .depend
+
+.depend:
+	g++ -MM -E $(CPPFLAGS) $(INCLUDE) $(CPPFILES) > .depend	
+
+clean:
+	rm -f core.* $(OBJ_DIR)/*.o $(EXE_NAME) .depend
+
+
